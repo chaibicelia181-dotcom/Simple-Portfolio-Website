@@ -1,0 +1,187 @@
+@import url('base.css');
+
+
+
+
+/*Hobby card timeline*/
+.hobby-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 42px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(201,185,154,0.2);
+  position: relative;
+  transition: box-shadow var(--transition), transform var(--transition);
+  overflow: hidden;
+}
+
+/* Animated left accent bar on hover */
+.hobby-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--sage), var(--sage-light));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s var(--transition);
+}
+
+.hobby-card:hover::before { transform: scaleY(1); }
+.hobby-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateX(4px);
+}
+
+.hobby-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.hobby-card h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--sage-dark);
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.hobby-emoji {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.hobby-card p {
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.hobby-card p:last-child { margin-bottom: 0; }
+
+.piano-images, .mahum-images {
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+
+
+.piano-images img, .mahum-images img {
+  width: 100%;
+  height: auto;        
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+
+}
+
+.piano-images img:hover, .mahum-images img:hover {
+  transform: scale(1.05); /* grows slightly */
+}
+
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--tan-light);
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.skill-track {
+  height: 6px;
+  background: var(--cream-dark);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+/* Fill animates in on page load via animation-delay */
+.skill-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(to right, var(--sage-dark), var(--sage-light));
+  animation: growBar 1s both;
+}
+
+@keyframes growBar {
+  from { width: 0; }
+  to   { width: var(--fill); }
+}
+
+.skill-fill[style*="65"]  { animation-delay: 0.3s; }
+.skill-fill[style*="70"]  { animation-delay: 0.5s; }
+.skill-fill[style*="90"]  { animation-delay: 0.7s; }
+
+
+
+.learning-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-top: 18px;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  border: 1px dashed var(--tan);
+}
+
+.learning-callout-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.learning-callout strong { color: var(--text); }
+
+
+.audio-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-top: 20px;
+  border: 1px solid var(--tan-light);
+}
+
+.audio-label {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.audio-block audio {
+  flex: 1;
+  height: 36px;
+  accent-color: var(--sage-dark);
+}
+
+
+@media (max-width: 720px) {
+  .hobby-card { padding: 28px 22px; }
+  .hobby-card:hover { transform: translateX(2px); }
+}

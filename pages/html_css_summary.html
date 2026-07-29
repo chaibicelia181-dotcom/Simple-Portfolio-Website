@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML and CSS concepts summary</title>
+
+  <!-- This page is the summary of what I have learnt in class and in my self study concerning html and css-->
+  <!-- for this part I have used internal css as required in the assignment task-->
+  <style>
+
+    /*Here I have created variables for the css styling to simplify the process and improve the readability of the code*/
+    :root {
+      --primary:      #2d6a4f;
+      --primary-light:#d8eee3;
+      --accent:       #40916c;
+      --bg:           #f8f6f3;
+      --white:        #ffffff;
+      --text:         #2c2825;
+      --text-muted:   #6b6460;
+      --border:       #e4ddd4;
+      --code-bg:      #f0ede8;
+      --radius:       10px;
+      --shadow:       0 2px 12px rgba(44,40,37,0.09);
+    }
+
+    /*  box-sizing reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Overall styling of the background colour and font of the body */
+    body {
+      background-color: var(--bg);
+      font-family: 'Segoe UI', Georgia, sans-serif;
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* page header styling */
+    .summary-header {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--accent) 100%);
+      color: white;
+      padding: 56px 60px 48px;
+      text-align: center;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 16px 0;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .summary-header h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .summary-header p {
+      font-size: 1rem;
+      opacity: 0.85;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .summary-header .meta {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      opacity: 0.75;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    /* main layout */
+    .page { max-width: 860px; margin: 0 auto; padding: 52px 40px 100px; }
+
+    /* section headings */
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 52px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 28px 0 10px;
+    }
+
+    p { margin-bottom: 14px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    /* how to style unoredered lists */
+    ul.styled, ol.styled {
+      padding-left: 0;
+      list-style: none;
+      margin: 10px 0 20px;
+    }
+
+    ul.styled li, ol.styled li {
+      padding: 9px 12px 9px 28px;
+      position: relative;
+      font-size: 0.93rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    ul.styled li:last-child, ol.styled li:last-child { border-bottom: none; }
+
+    ul.styled li::before {
+      content: '◆';
+      position: absolute;
+      left: 10px;
+      color: var(--accent);
+      font-size: 0.5rem;
+      top: 14px;
+    }
+
+    ol.styled { counter-reset: list-counter; }
+    ol.styled li { counter-increment: list-counter; }
+    ol.styled li::before {
+      content: counter(list-counter);
+      position: absolute;
+      left: 8px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.8rem;
+      top: 10px;
+    }
+
+    /* styling of the code snippets that demonstrate the css styling*/
+    code {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      color: var(--primary);
+    }
+
+    /* Concept cards */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0 28px;
+    }
+
+    .concept-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .concept-card:hover { box-shadow: 0 6px 24px rgba(44,40,37,0.13); }
+
+    .concept-card .card-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .concept-card p { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
+
+    /* Demo boxes */
+    .demo-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 16px 0;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .demo-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Flexbox demo */
+    .flex-demo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .flex-item-demo {
+      background: var(--primary-light);
+      border: 1px solid var(--accent);
+      color: var(--primary);
+      padding: 14px 20px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      flex-grow: 1;
+      flex-basis: 80px;
+      text-align: center;
+    }
+
+    /* Grid demo */
+    .grid-demo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 10px;
+      justify-items: stretch;
+      align-items: center;
+    }
+
+    /* Grid merge demo — grid-column span */
+    .grid-demo .span-full {
+      grid-column: 1 / -1;
+      background: var(--accent);
+      color: white;
+    }
+
+    .grid-item-demo {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    /* Hover button demo */
+    .hover-btn-demo {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 11px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-btn-demo:hover {
+      background: #1b4332;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(45,106,79,0.3);
+    }
+
+    /* Animated box */
+    .animated-box-demo {
+      width: 70px;
+      height: 70px;
+      background: var(--accent);
+      border-radius: 8px;
+      animation: slideRight 2s alternate-reverse infinite;
+    }
+
+    @keyframes slideRight {
+      from { transform: translateX(0); }
+      to   { transform: translateX(200px); }
+    }
+
+    /* Callout box */
+    .callout {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.92rem;
+      color: #1b4332;
+    }
+
+    .callout strong { color: var(--primary); }
+
+    /* Tag pills */
+    .tag {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 100px;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin: 2px;
+      border: 1px solid rgba(45,106,79,0.2);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .report-header { padding: 40px 24px; }
+      .report-header h1 { font-size: 1.7rem; }
+      .page { padding: 36px 20px 80px; }
+      .concept-grid { grid-template-columns: 1fr; }
+      .flex-demo { flex-direction: column; }
+      .grid-demo { grid-template-columns: 1fr 1fr; }
+      .animated-box-demo { animation: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+
+<header class="summary-header">
+  <h1>HTML &amp; CSS Learning summary</h1>
+  <p>A summary of all HTML and CSS topics learned in class and through self-study, with live demonstrations.</p>
+</header>
+
+<div class="page">
+
+  <h2>HTML summary</h2>
+
+  <h3>1. Document Structure</h3>
+  <p>
+    Every HTML page begins with a standard template.   <code>&lt;!DOCTYPE html&gt;</code> declaration tells the browser
+    which version of HTML is being used. The <code>&lt;html lang="en"&gt;</code> element wraps the entire document and
+    specifies the language. Inside, the <code>&lt;head&gt;</code> holds metadata, and the
+    <code>&lt;body&gt;</code> contains everything the user sees. <code>&lt;meta charset="UTF-8"&gt;</code> is for character encoding, <code>&lt;meta name="viewport"&gt;</code> for responsive dispay on smaller screens, <code>&lt;link rel="stylesheet"&gt</code> in order to link to an external css file, <code>&lt;title&gt;</code> for the page title shown in the browser, and <code>&lt;body&gt</code> where all the content goes.
+  </p>
+
+
+
+
+  <h3>2. Headings</h3>
+  <p>
+    HTML provides six levels of heading: <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>.
+    <code>&lt;h1&gt;</code> is the most important (there should only be one per page), while <code>&lt;h6&gt;</code> is the least prominent.
+    Headings create visual hierarchy and help screen readers navigate the page.
+  </p>
+  <div class="demo-box">
+    <div class="demo-label"> Demo: Headings</div>
+    <h1 style="color:#2d6a4f;font-size:1.6rem;margin-bottom:4px;">Heading 1: Page Title</h1>
+    <h2 style="color:#40916c;font-size:1.3rem;border:none;margin:4px 0;">Heading 2: Section</h2>
+    <h3 style="font-size:1.1rem;margin:4px 0;">Heading 3: Sub-section</h3>
+    <h4 style="font-size:1rem;margin:4px 0;">Heading 4: Sub-sub-section</h4>
+  </div>
+
+  <h3>3. Paragraphs and Text Formatting</h3>
+  <ul class="styled">
+    <li><code>&lt;p&gt;</code>: Paragraph of text. Each <code>&lt;p&gt;</code> creates a new block.</li>
+    <li><code>&lt;strong&gt;</code>: <strong>Bold text</strong> used for important content.</li>
+    <li><code>&lt;em&gt;</code>: <em>Italic text</em> used for emphasis.</li>
+    <li><code>&lt;u&gt;</code>: <u>Underlined text</u></li>
+    <li><code>&lt;s&gt;</code>: <s>Strikethrough text</s> used for completed items.</li>
+    <li><code>&lt;br&gt;</code>: Line break within a paragraph.<br>This text is after a line break.</li>
+    <li><code>&lt;hr&gt;</code>: Horizontal divider line (see the lines in this document).</li>
+    <li><code>&lt;blockquote&gt;</code> and <code>&lt;cite&gt;</code>: For quotes and their sources.</li>
+  </ul>
+
+  <h3>Demo of blockquotes and cite</h3>
+  <blockquote style="border-left:4px solid #2d6a4f; padding-left:16px; font-style:italic; color:#555; margin:16px 0;">
+    &ldquo;A reader lives a thousand lives before he dies. The man who never reads lives only one.&rdquo;
+  </blockquote>
+  <cite style="font-size:0.85em;color:#888;">&mdash; George R.R. Martin</cite>
+
+  <h3>4. Lists</h3>
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="card-title">Unordered List <code>&lt;ul&gt;</code></div>
+      <p>Bullet-point list for items without a specific order. Each item uses <code>&lt;li&gt;</code>.</p>
+    </div>
+    <div class="concept-card">
+      <div class="card-title">Ordered List <code>&lt;ol&gt;</code></div>
+      <p>Numbered list for sequential items. Also uses <code>&lt;li&gt;</code> for each entry.</p>
+    </div>
+  </div>
+
+  <div class="demo-box">
+    <div class="demo-label">Demo of lists</div>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;">
+      <div>
+        <p><strong>Unordered:</strong></p>
+        <ul style="padding-left:20px;font-size:0.9rem;">
+          <li>Crochet</li>
+          <li>Reading</li>
+          <li>Piano</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Ordered:</strong></p>
+        <ol style="padding-left:20px;font-size:0.9rem;">
+          <li>Pick up a book</li>
+          <li>Make a cup of tea</li>
+          <li>Read for hours</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h3>5. Images</h3>
+  <p>
+    The <code>&lt;img&gt;</code> tag embeds images. It is a self-closing tag (no closing tag needed).
+    Attributes:
+  </p>
+  <ul class="styled">
+    <li><code>src</code>: Path to the image file</li>
+    <li><code>alt</code>: Alternative text for screen readers when image fails to load</li>
+    <li><code>width</code> / <code>height</code>: Set dimensions</li>
+    <li><code>border</code>: Adds a border (older HTML attribute; prefer CSS)</li>
+  </ul>
+
+  <div class="demo-box">
+    <div class="demo-label">Demo of inserting images and audio and videos</div>
+      <h4>1. Images</h4>
+
+      <!-- Basic image with alt and title -->
+      <p><b>Basic image (with alt and title):</b></p>
+      <img src="../photos/lilly_of_the_valley.jpg"
+          border="3"
+          width="200"
+          alt="Lily of the valley flower"
+          title="This is a tooltip — hover to see it!">
+
+      <br><br>
+
+
+      <!--Inserting audios-->
+      <h4>2. Audio</h4>
+
+      <p><b>Audio player (with controls):</b></p>
+      <audio controls>
+        <source src="../audios/Idea 22 - Gibran Alcocer.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <br><br>
+
+
+      <!--Inserting a video-->
+      <h4>3. Video</h4>
+      <video controls width="400" loop muted>
+        <source src="../videos/file_example_MP4_480_1_5MG.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+  </div>
+
+  <h3>6. Hyperlinks</h3>
+  <p>
+    The <code>&lt;a href="..."&gt;</code> anchor tag creates a hyperlink. Its main attributes are: 
+  </p>
+  <ul class="styled">
+    <li><code>href</code>: The URL destination</li>
+    <li><code>target="_blank"</code>: Opens the link in a new tab</li>
+    <li><code>rel="noopener noreferrer"</code>: Security attribute used with target="_blank"</li>
+  </ul>
+  <p>
+    Example: <a href="https://www.uwe.ac.uk" target="_blank" rel="noopener noreferrer" style="color:#2d6a4f;font-weight:600;">Visit UWE&apos;s website &#8594;</a>
+  </p>
+
+  <h3>7. Tables</h3>
+  <p>Tables organise data into rows and columns. Key elements:</p>
+  <ul class="styled">
+    <li><code>&lt;table&gt;</code>: The container element</li>
+    <li><code>&lt;thead&gt;</code>: Table head group</li>
+    <li><code>&lt;tbody&gt;</code>: Table body (contains data rows)</li>
+    <li><code>&lt;tr&gt;</code>: Table row</li>
+    <li><code>&lt;th&gt;</code>: Table header cell</li>
+    <li><code>&lt;td&gt;</code>: Table data cell</li>
+    <li><code>cellpadding</code>, <code>cellspacing</code>, <code>border</code>: Table attributes</li>
+  </ul>
+
+  <div class="demo-box">
+    <div class="demo-label">Demo of table</div>
+    <table width="100%" border="1" cellpadding="8" cellspacing="0" style="font-size:0.88rem;border-collapse:collapse;">
+      <thead>
+        <tr style="background:#d8eee3;">
+          <th>Hobby</th>
+          <th>Since</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Piano</td><td>5 years ago</td><td>Intermediate</td></tr>
+        <tr><td>Crochet</td><td>3 years ago</td><td>Intermediate</td></tr>
+        <tr><td>Reading</td><td>Childhood</td><td>Expert</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8. Special Symbols</h3>
+  <p>
+    HTML entities allow special characters to be inserted safely.
+    Characters that would break HTML (like <code>&lt;</code> and <code>&gt;</code>) must be escaped.
+  </p>
+
+  <div class="demo-box">
+    <div class="demo-label">Demo of Special Symbols</div>
+    <table style="font-size:0.88rem;border-collapse:collapse;width:100%;">
+      <tr style="background:#f0ede8;">
+        <th style="padding:8px;text-align:left;">Entity</th>
+        <th style="padding:8px;text-align:left;">Code</th>
+        <th style="padding:8px;text-align:left;">Meaning</th>
+      </tr>
+      <tr><td style="padding:8px;">&copy;</td><td style="padding:8px;"><code>&amp;copy;</code></td><td style="padding:8px;">Copyright</td></tr>
+      <tr><td style="padding:8px;">&amp;</td><td style="padding:8px;"><code>&amp;amp;</code></td><td style="padding:8px;">Ampersand</td></tr>
+      <tr><td style="padding:8px;">&euro;</td><td style="padding:8px;"><code>&amp;euro;</code></td><td style="padding:8px;">Euro sign</td></tr>
+      <tr><td style="padding:8px;">&pound;</td><td style="padding:8px;"><code>&amp;pound;</code></td><td style="padding:8px;">Pound sign</td></tr>
+      <tr><td style="padding:8px;">&yen;</td><td style="padding:8px;"><code>&amp;yen;</code></td><td style="padding:8px;">Yen sign</td></tr>
+      <tr><td style="padding:8px;">&mdash;</td><td style="padding:8px;"><code>&amp;mdash;</code></td><td style="padding:8px;">Em dash</td></tr>
+      <tr><td style="padding:8px;">&ldquo;&rdquo;</td><td style="padding:8px;"><code>&amp;ldquo; &amp;rdquo;</code></td><td style="padding:8px;">Curly quotes</td></tr>
+      <tr><td style="padding:8px;">&infin;</td><td style="padding:8px;"><code>&amp;infin;</code></td><td style="padding:8px;">Infinity</td></tr>
+    </table>
+  </div>
+
+  <h3>9. Semantic HTML Elements</h3>
+
+  <ul class="styled">
+    <li><code>&lt;header&gt;</code>: Page or section header</li>
+    <li><code>&lt;nav&gt;</code>: Navigation links</li>
+    <li><code>&lt;main&gt;</code>: Primary content of the page</li>
+    <li><code>&lt;section&gt;</code>: Thematic grouping of content</li>
+    <li><code>&lt;article&gt;</code>: Self-contained content</li>
+    <li><code>&lt;footer&gt;</code>: Footer </li>
+    <li><code>&lt;figure&gt;</code> / <code>&lt;figcaption&gt;</code>: Images with captions</li>
+  </ul>
+
+  <h3>10. Forms</h3>
+  <p>
+    Forms allow users to submit data. The portfolio includes a contact form on the home page. you can find a Demo bellow
+  </p>
+  <form action="#" method="post">
+
+    <!-- Text input -->
+    <p>
+      <label for="demo-name"><b>Your name:</b></label><br>
+      <input type="text" id="demo-name" name="name"
+            placeholder="fname lname" required
+            style="width: 280px; padding: 8px; margin-top: 4px;">
+    </p>
+
+    <!-- Email input -->
+    <p>
+      <label for="demo-email"><b>Your email:</b></label><br>
+      <input type="email" id="demo-email" name="email"
+            placeholder="you@example.com" required
+            style="width: 280px; padding: 8px; margin-top: 4px;">
+    </p>
+
+    <!-- Dropdown select -->
+    <p>
+      <label for="demo-topic"><b>Favourite hobby:</b></label><br>
+      <select id="demo-topic" name="topic"
+              style="width: 280px; padding: 8px; margin-top: 4px;">
+        <option value="">-- Choose one --</option>
+        <option value="reading">Reading</option>
+        <option value="crochet">Crochet</option>
+        <option value="piano">Piano</option>
+      </select>
+    </p>
+
+    <!-- Radio buttons -->
+    <p>
+      <b>Do you read regularly?</b><br>
+      <input type="radio" id="yes" name="reader" value="yes">
+      <label for="yes">Yes</label>
+      &nbsp;
+      <input type="radio" id="no" name="reader" value="no">
+      <label for="no">No</label>
+    </p>
+
+    <!-- Checkbox -->
+    <p>
+      <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+      <label for="newsletter">Subscribe to my reading newsletter</label>
+    </p>
+
+    <!-- Textarea -->
+    <p>
+      <label for="demo-message"><b>Message:</b></label><br>
+      <textarea id="demo-message" name="message"
+                rows="4" cols="40"
+                placeholder="Leave a comment..."
+                style="padding: 8px; margin-top: 4px;"></textarea>
+    </p>
+
+    <!-- Submit button -->
+    <p>
+      <input type="submit" value="Send"
+            style="background: #8fae9d; color: white; border: none;
+                    padding: 10px 24px; cursor: pointer;">
+      &nbsp;
+      <input type="reset" value="Clear"
+            style="padding: 10px 24px; cursor: pointer;">
+    </p>
+
+  </form>
+
+  <!-- css summary-->
+  <h2>CSS summary </h2>
+
+  <p>
+    CSS (Cascading Style Sheets) controls the visual presentation of HTML pages.
+    There are three ways to apply CSS: <strong>inline</strong> ,
+    <strong>internal</strong> ,
+    and <strong>external.
+  </p>
+
+
+  <h3>1. Selectors</h3>
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="card-title">Element Selector</div>
+      <p>Targets all instances of a tag: <code>p { }</code>, <code>h1 { }</code>, <code>nav { }</code></p>
+    </div>
+    <div class="concept-card">
+      <div class="card-title">Class Selector</div>
+      <p>Targets elements with a class: <code>.card { }</code>, <code>.btn { }</code></p>
+    </div>
+    <div class="concept-card">
+      <div class="card-title">ID Selector</div>
+      <p>Targets one unique element: <code>#contact-section { }</code>, <code>#about { }</code></p>
+    </div>
+    <div class="concept-card">
+      <div class="card-title">Pseudo-class / Pseudo-element</div>
+      <p><code>:hover</code>, <code>:last-child</code>, <code>:nth-child()</code>, <code>::before</code>, <code>::after</code></p>
+    </div>
+  </div>
+
+  <h3>2. Text and Font Properties</h3>
+  <ul class="styled">
+    <li><code>color</code>: Text colour (named, hex, rgb)</li>
+    <li><code>font-size</code>: Text size (px, rem, em, vw, clamp())</li>
+    <li><code>font-family</code>: Font type. Portfolio uses Google Fonts: Cormorant Garamond &amp; DM Sans</li>
+    <li><code>font-weight</code>: Bold/thin: 300, 400, 500, 600, 700</li>
+    <li><code>font-style</code>: <em>italic</em> or normal</li>
+    <li><code>text-align</code>: left, center, right, justify</li>
+    <li><code>text-decoration</code>: underline, line-through, none</li>
+    <li><code>text-transform</code>: uppercase, lowercase, capitalize</li>
+    <li><code>letter-spacing</code>: Space between characters</li>
+    <li><code>line-height</code> Space between lines</li>
+  </ul>
+
+  <h3>3. The Box Model</h3>
+  <p>
+    Every HTML element is treated as a box.
+  </p>
+  <div class="demo-box" style="padding: 0; overflow: hidden;">
+    <div style="background:#fff;padding:20px 24px;">
+      <div class="demo-label">Box Model demo</div>
+      <!-- Nested boxes showing the box model visually -->
+      <div style="background:#fee2e2; border: 2px solid #dc2626; padding: 0px; border-radius: 8px; text-align: center; font-size:0.8rem; color:#991b1b;">
+        <em>margin</em>
+        <div style="background:#fef3c7; border: 2px dashed #d97706; padding: 16px; border-radius: 6px; margin: 8px; color:#92400e;">
+          <em>border</em>
+          <div style="background:#d1fae5; padding: 1px; border-radius: 4px; margin: 8px; color:#065f46;">
+            <em>padding</em>
+            <div style="background:#a7f3d0; padding: 15px; border-radius: 3px; color:#065f46; font-weight:600;">
+              Content
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>4. Backgrounds</h3>
+  <ul class="styled">
+    <li><code>background-color</code>: Solid background colour</li>
+    <li><code>background-image</code> : Image as background. Portfolio uses <code>linear-gradient()</code> and <code>radial-gradient()</code></li>
+    <li><code>background-size: cover</code>: Scales image to cover the element</li>
+    <li><code>background-repeat: no-repeat</code>: Prevents tiling</li>
+    <li><code>background-position: center</code>: Positions the background image</li>
+  </ul>
+
+  <h3>5. Display and Position</h3>
+  <ul class="styled">
+    <li><code>display: block</code>: Full-width block element</li>
+    <li><code>display: inline</code>: No line break</li>
+    <li><code>display: inline-block</code>: Block-like box model</li>
+    <li><code>display: none</code>: Hides the element</li>
+    <li><code>position: relative</code>: Positioned relative to its normal position</li>
+    <li><code>position: absolute</code>: Positioned relative to the nearest positioned ancestor</li>
+    <li><code>position: fixed</code>: Fixed to the viewport</li>
+    <li><code>position: sticky</code>: Sticks to the viewport when scrolling (used alot for navigation bars)</li>
+    <li><code>z-index</code>: Controls the stacking order of elements</li>
+    <li><code>overflow: hidden / auto</code>: Manages content that exceeds the element size</li>
+  </ul>
+
+  <h3>6. Flexbox</h3>
+  <p>
+    CSS Flexbox is a one-dimensional layout method.
+  </p>
+
+  <ul class="styled">
+    <li><code>display: flex</code>: Enables flex layout</li>
+    <li><code>flex-direction: row / column</code>: Direction of the main axis</li>
+    <li><code>justify-content</code>: Alignment on the main axis: <code>space-between</code>, <code>center</code>, <code>flex-start</code></li>
+    <li><code>align-items</code>: Alignment on the cross axis: <code>center</code>, <code>flex-start</code>, <code>flex-end</code></li>
+    <li><code>flex-wrap: wrap</code>: Allows items to wrap to the next line (used in nav, language strip)</li>
+    <li><code>flex-grow</code>: Controls how much a flex item grows</li>
+    <li><code>flex-basis</code>: Default size of a flex item before growth</li>
+    <li><code>align-self</code>: Overrides <code>align-items</code> for one specific item</li>
+    <li><code>gap</code>: Spacing between flex items</li>
+  </ul>
+
+  <div class="demo-box">
+    <div class="demo-label">Flexbox Demo (<code>display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;</code>)</div>
+    <div class="flex-demo">
+      <div class="flex-item-demo">Box 1</div>
+      <div class="flex-item-demo">Box 2</div>
+      <div class="flex-item-demo">Box 3</div>
+    </div>
+  </div>
+
+  <h3>7. CSS Grid</h3>
+  <p>
+    CSS Grid is a two-dimensional layout system.
+  </p>
+  <ul class="styled">
+    <li><code>display: grid</code> : Enables grid layout</li>
+    <li><code>grid-template-columns</code> : Defines columns</li>
+    <li><code>grid-template-rows</code> : Defines row heights</li>
+    <li><code>gap</code> : Space between grid cells</li>
+    <li><code>grid-column: 1 / -1</code> : Merging method 1: spans item across all columns</li>
+    <li><code>grid-template-areas</code> : Merging method 2: named layout regions</li>
+    <li><code>justify-items</code> : Horizontal alignment of grid items</li>
+    <li><code>align-items</code> : Vertical alignment of grid items</li>
+  </ul>
+
+  <div class="demo-box">
+    <div class="demo-label"> Grid Demo (<code>grid-column: 1 / -1</code>)</div>
+    <div class="grid-demo">
+      <div class="grid-item-demo">Cell 1</div>
+      <div class="grid-item-demo">Cell 2</div>
+      <div class="grid-item-demo">Cell 3</div>
+      <!-- This cell spans all 3 columns — grid merging method -->
+      <div class="grid-item-demo span-full">Cell spanning all columns (grid-column: 1 / -1)</div>
+    </div>
+  </div>
+
+  <h3>8. Transitions and Animations</h3>
+  <ul class="styled">
+    <li><code>transition: property duration timing-function</code>: Smooth change between two states</li>
+    <li><code>@keyframes name { from { ... } to { ... } }</code>: Defines an animation sequence</li>
+    <li><code>animation: name duration timing fill</code>: Applies a keyframe animation</li>
+    <li><code>animation-delay</code>: It means the start of the animation</li>
+    <li><code>transform: translateY() / translateX() / scale() / rotate()</code>: Geometric transformations</li>
+  </ul>
+
+  <div class="demo-box">
+    <div class="demo-label"> Animation Demo (<code>@keyframes slideRight</code>)</div>
+    <div class="animated-box-demo"></div>
+  </div>
+
+  <div class="demo-box" style="margin-top:16px;">
+    <div class="demo-label">Live Demo of Hover Button with <code>transition</code></div>
+    <button class="hover-btn-demo">Hover over me</button>
+  </div>
+
+
+  <h3>9. CSS Variables (Custom Properties)</h3>
+  <p>
+    CSS custom properties, defined in <code>:root { }</code>, act like variables &mdash; store a value once
+    and reference it anywhere. it is used as you can see at the very beggining of the code 
+  </p>
+
+
+  <h3>10. Media Queries</h3>
+  <p>
+    Media queries allow different CSS rules to be applied based on screen width, meaning that it is used for responsiveness
+  </p>
+  <div class="callout">
+    <strong>Example:</strong> <code>@media (max-width: 720px) { .facts-list { grid-template-columns: 1fr; } }</code><br>
+  </div>
+
+
+
+
+</div>
+</body>
+</html>

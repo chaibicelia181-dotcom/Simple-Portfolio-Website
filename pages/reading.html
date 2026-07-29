@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celia — Reading</title>
+  <link rel="stylesheet" href="../css/reading.css">
+</head>
+<body>
+
+  <div id="read-progress"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Celia</span>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="practiced_hobbies.html">Hobbies</a></li>
+        <li><a href="future_aspirations.html">Aspirations</a></li>
+        <li><a href="crochet.html">Crochet</a></li>
+        <li><a href="reading.html" class="active">Reading</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- header of the webpage-->
+  <header class="page-header">
+    <div class="page-header-content">
+      <p class="page-header-eyebrow">Books & recommendations</p>
+      <h1>My reading obsession</h1>
+      <p>Books, recommendations and a TBR that keeps growing</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- reading stats section-->
+    <div class="stats-strip">
+      <div class="stat-block">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">Books this year</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Genres explored</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">1600</div>
+        <div class="stat-label">Pages — Les Misérables</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">TBR pile</div>
+      </div>
+    </div>
+
+    <!-- section jump navigation bar -->
+    <nav class="section-nav" aria-label="Page sections">
+      <a href="#about">About</a>
+      <a href="#recommendations">Recommendations</a>
+      <a href="#recent">Recent reads</a>
+      <a href="#current">Currently reading</a>
+      <a href="#tbr">My TBR</a>
+      <a href="#quotes">My Favourite Quotes</a>
+    </nav>
+
+    <!-- about books and me -->
+    <section class="card" id="about">
+      <h2>About books</h2>
+      <hr class="divider">
+      <p>I have been reading books since I can remember. My father always encouraged me to do so,
+        so we can say that I got this passion thanks to him. I just love to grab a book, a cup of tea
+        (or cold drink, depending on the season) and let my mind wander.
+        I sometimes get reading slumps, like every reader I assume, but I never actually gave up on it.</p>
+
+      <!-- genres tags-->
+      <div class="genre-cloud">
+        <span class="genre-pill">Classics</span>
+        <span class="genre-pill">Thriller</span>
+        <span class="genre-pill">Fantasy</span>
+        <span class="genre-pill">Psychology</span>
+        <span class="genre-pill">Historical fiction</span>
+        <span class="genre-pill">Mystery</span>
+        <span class="genre-pill">Horror</span>
+      </div>
+    </section>
+
+    <!-- recommendations section -->
+    <section class="card" id="recommendations">
+      <h2>My personal book recommendations</h2>
+      <hr class="divider">
+      <p>I'll try to recommend books from different genres, so that you'll hopefully find your cup of tea!</p>
+      <p>Click on a cover to find it on Amazon.</p>
+
+      <div class="books-grid">
+
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Then-There-Were-None/dp/0062073486" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/agatha.png" alt="And Then There Were None">
+          </a>
+          <h3>And Then There Were None</h3>
+          <p>Agatha Christie</p>
+          <div class="star-rating">★★★★★</div>
+          <span class="book-tag">Mystery</span>
+          <p>My personal favourite of hers — perfect if you like thriller/mystery.</p>
+        </div>
+
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Six-Crows-Duology-Crooked-Kingdom-ebook/dp/B08QTLZDKY/ref=sr_1_8?crid=QIH0Q78B3QQ6&dib=eyJ2IjoiMSJ9.xbfqtgE1p1NItVDasPo814nXwVyPejya1a3N-xqlKXiLMGjs42GkL6DJrKArkAAwuxwelS-FFhkX6hZ2V8bLR2XPgpK2mHvOiGfzQELhF34toUeZRQ4fJ8a09UHGJgYfi3Aafj6JwKcl7o62lgkzCwGxQE0KuG3gjD3g4Wtg8x6INKJS1Ecv8-lB-AS2HgYyumIvcj9qfSySQOJtlu26tj2cX9ub4ma9WY4gq4TIdr8.duikFPVVDyjXyC6XqhZ9bzqOe3tODgg9jnJLNCYFO5o&dib_tag=se&keywords=six+of+crows&qid=1776871280&s=books&sprefix=six+of+crows%2Cstripbooks%2C200&sr=1-8" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/crows.png" alt="Six of Crows">
+          </a>
+          <h3>Six of Crows</h3>
+          <p>Leigh Bardugo</p>
+          <div class="star-rating">★★★★☆</div>
+          <span class="book-tag">Fantasy</span>
+          <p>A bit tricky to get into at first, but absolutely worth it.</p>
+        </div>
+
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Six-Crows-Crooked-Kingdom-Book-ebook/dp/B0117K9N3Q/ref=sr_1_4?crid=QIH0Q78B3QQ6&dib=eyJ2IjoiMSJ9.xbfqtgE1p1NItVDasPo814nXwVyPejya1a3N-xqlKXiLMGjs42GkL6DJrKArkAAwuxwelS-FFhkX6hZ2V8bLR2XPgpK2mHvOiGfzQELhF34toUeZRQ4fJ8a09UHGJgYfi3Aafj6JwKcl7o62lgkzCwGxQE0KuG3gjD3g4Wtg8x6INKJS1Ecv8-lB-AS2HgYyumIvcj9qfSySQOJtlu26tj2cX9ub4ma9WY4gq4TIdr8.duikFPVVDyjXyC6XqhZ9bzqOe3tODgg9jnJLNCYFO5o&dib_tag=se&keywords=six+of+crows&qid=1776871280&s=books&sprefix=six+of+crows%2Cstripbooks%2C200&sr=1-4" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/kingdom.png" alt="Crooked Kingdom">
+          </a>
+          <h3>Crooked Kingdom</h3>
+          <p>Leigh Bardugo</p>
+          <div class="star-rating">★★★★★</div>
+          <span class="book-tag">Fantasy</span>
+          <p>The sequel — equally brilliant. Don't skip Six of Crows first!</p>
+        </div>
+
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Metamorphosis-Franz-Kafka/dp/1917574126/ref=sr_1_2_sspa?crid=363FE84TMP9L8&dib=eyJ2IjoiMSJ9.j_GehLHCMl0TajX5RziPlL-_ch_YPuOCIQ0E1rZxDZ0wN_uEMtifIhUNe_Mt7Hi-Qlf3MNIORXLP3Rof-Ag6zy83DoT4sCSNRuxV1vk4Y7J5h6cmPRf1T6ouqZ47u6sKYKTcX1amGJZA1xHeBULD0gvO5uiWn0Bge6WHOi50MbFY0cc2XB85ZIe8ng6Y8ENBAhM51FZzv83AYJ8f_zMVpyl6cPnHKPMVFY34YpFDFeo._7g4H-AavrUpTFaPYeBd56Hzi3BnK_bV3fPBXynYlYs&dib_tag=se&keywords=the+metamorphosis&qid=1776871379&s=books&sprefix=the+metamorphosiss%2Cstripbooks%2C160&sr=1-2-spons&aref=2DKIpk6sby&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/kafka.png" alt="The Metamorphosis">
+          </a>
+          <h3>The Metamorphosis</h3>
+          <p>Franz Kafka</p>
+          <div class="star-rating">★★★★☆</div>
+          <span class="book-tag">Classic</span>
+          <p>A completely different vibe — great if you enjoy philosophy and metaphor.</p>
+        </div>
+
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/dp/1785043323/?bestFormat=true&k=surrounded%20by%20psychopaths&ref_=nb_sb_ss_w_scx-ent-bk-ww_k0_1_18_de&crid=32G1M03DOXFQP&sprefix=surrounded%20by%20psyc" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/surrounded.png" alt="Surrounded by Psychopaths">
+          </a>
+          <h3>Surrounded by Psychopaths</h3>
+          <p>Thomas Erikson</p>
+          <div class="star-rating">★★★★☆</div>
+          <span class="book-tag">Psychology</span>
+          <p>Super interesting content about personality types. Highly recommend.</p>
+        </div>
+
+      </div>
+
+      <!-- quote block-->
+      <div class="book-quote-block">
+        <blockquote>"It is a truth universally acknowledged that a reader in possession of a good book must be in want of another."</blockquote>
+        <cite>— A paraphrase that every bookworm can relate to</cite>
+      </div>
+    </section>
+
+    <!-- recent reads section-->
+    <section class="card" id="recent">
+      <h2>My most recent reads</h2>
+      <hr class="divider">
+      <div class="books-grid">
+
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Ballad-Songbirds-Official-Writing-Journal/dp/B08GL337CL/ref=sr_1_15?crid=2ZBYCKGKXRKUF&dib=eyJ2IjoiMSJ9.6TBK6vnqsYQCOhUF9hSnbq8_iXepq8qLznH2fQA4bVrhiYHJ734Tb4mIHMv2C0NdOi4kHa1RGo-blNwfWQs0rguQm5-9BM_JgH58OCveAdfQuC-7HL5h2eDBQ_7LHF8Qha3rp9RgrNf008K0qT0p4UKYiJWvQQJy7aB1iABp1c0AL3-BixRZiip_HfE1RFMyIMGigvFPMfg5QYiRsTbsqfbR_jFg1LlSXjCcYS7bw5k.6E3LWGVUDUkTv60CxIHORarNF4NJdpxJE5l07Tfdp8Y&dib_tag=se&keywords=the+ballad+of+songbirds+and+snakes+cd&qid=1776871964&sprefix=the+ballad+of+songbirds+and+snakes%2Caps%2C120&sr=8-15" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/ballad.png" alt="Ballad of Songbirds and Snakes">
+          </a>
+            <h3>The Ballad of Songbirds and Snakes</h3>
+          <p>Suzanne Collins</p>
+          <div class="star-rating">★★★★☆</div>
+          <span class="book-tag">Dystopia</span>
+          <p>Follows young President Snow. So many Hunger Games references; I loved it.</p>
+        </div>
+
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Sunrise-Reaping-Hunger-Games-Novel/dp/070234057X/ref=sr_1_1?crid=1FAJ1NEFRDPV7&dib=eyJ2IjoiMSJ9.IMzmc0XTI5c-CjZ2olumw4J4Ml9g2oPPXAO72dQXxvyjsIaC9DDEr2MbYINt-C-necdWe2YlsNac3kWL_AMKBrxWfy2SZb1z6R0HCu2jAj8P2FGDi-gbTsZbs6UBlwzWMGazn8_poCVjGjsrSYwe9vZ8LOEppokrP--l4He0IVVmyIl-62eKzVjC0jXV1EO-jPOJoYvF6m-yLmF4pDTVBn5Lu6gcl1oV_Om7irPOnGw.qeaAzKaA4734rpZMqZdh-ahQN0rmlVpQ-YzLQT1sJdA&dib_tag=se&keywords=sunrise+on+the+reaping&qid=1776872156&sprefix=sunrise+on+the+reaping%2Caps%2C148&sr=8-1" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/reaping.png" alt="Sunrise on the Reaping">
+          </a>
+          <h3>Sunrise on the Reaping</h3>
+          <p>Suzanne Collins</p>
+          <div class="star-rating">★★★★★</div>
+          <span class="book-tag">Dystopia</span>
+          <p>Collins' most recent — Haymitch as the main character, brilliant hidden messages woven throughout.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- currently reading section-->
+    <section class="card" id="current">
+      <h2>My current read</h2>
+      <hr class="divider">
+      <div class="spotlight-book">
+        <a href="https://www.amazon.co.uk/dp/B07N7785X7/?bestFormat=true&k=the%20institute%20stephen%20king&ref_=nb_sb_ss_w_scx-ent-bk-ww_k0_1_13_de&crid=3K9YCPKHFPIJO&sprefix=the%20institute" target="_blank" rel="noopener noreferrer">
+          <img src="../photos/institute.png" alt="The Institute by Stephen King">
+        </a>
+          
+        <div class="spotlight-info">
+          <span class="reading-pill"><span class="reading-pill-dot"></span>Reading now</span>
+          <h3>The Institute</h3>
+          <p class="author">Stephen King</p>
+          <p>Still halfway through — and I love it so far. I've always wanted to read Stephen King
+            and chose this one because of its Goodreads rating. Not disappointed.</p>
+          <span class="book-tag">Horror / Thriller</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- tbr section -->
+    <section class="card" id="tbr">
+      <h2>Books on my TBR</h2>
+      <hr class="divider">
+      <div class="books-grid">
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/White-Nights-Penguin-Little-Classics-ebook/dp/B017LB3E4Y/ref=sr_1_1?crid=1CZL4WUPHKNDE&dib=eyJ2IjoiMSJ9.-swg3gEN7dSZiI3-wT_VSNKXtmgdIsYbwnIMEnjoIQkQCzsvsYP5keHUtCgIkwBhvcQ3GwfJdqLFfV7fbq8p8gRshfiOQClmruCuaUGx7PjBNT8yjdkDbQcOmdDaAgnZYCcXYat71-ccR-xoS0HJcF7oMSRSr_A9exhI8TJa3qM7HTpddTdYOdUTVzrPAzyS-NoNuqgezx7yIHsFnn2PyvEqo1_T3d0HHxhObH6Bc0Q.DHp9ci1moGgr-hKGchBsNnx-KLeAOYDhr3ulQDuZA8Y&dib_tag=se&keywords=white+nights&qid=1776872288&s=digital-text&sprefix=whote+nights%2Cdigital-text%2C173&sr=1-1" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/fyodor.png" alt="White Nights">
+          </a>
+            <h3>White Nights</h3>
+          <p>Fyodor Dostoevsky</p>
+          <span class="book-tag">Classic</span>
+        </div>
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Secret-History-Donna-Tartt-ebook/dp/B00CEGTVGC/ref=sr_1_1?crid=CAI2QVAI03T9&dib=eyJ2IjoiMSJ9.YeADZc2EXIye8UNNYW8MZPU202axbFRJKlikDyj22bx4cnwZC3aVunVv0jL1DLkCVMgbfI_-rvje73zWnRjr3VcRSnLxpF-EqOiwMSU5AbOv235QHf8In-Fojm9LSelwYMUMGzeE32GkT7QKUJKqwWqRoZIZCTilMAtMk9U7pwmd7x4RBakGNslNumbvuMu3qARYqz--aHCz1CdgCKTmy6NHSEl0i9Y7HfEY5vVAuGU.zV_ZWWeFLyBF6XEVrlAvmB4ieMh5W5Y-y2ALXwVEKJA&dib_tag=se&keywords=the+secret+history&qid=1776872320&s=digital-text&sprefix=the+secret+hystory%2Cdigital-text%2C168&sr=1-1" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/history.png" alt="The Secret History">
+          </a>
+          <h3>The Secret History</h3>
+          <p>Donna Tartt</p>
+          <span class="book-tag">Literary fiction</span>
+        </div>
+        <div class="book-item">
+          <a href="https://www.amazon.co.uk/Silent-Patient-most-anticipated-thriller-ebook/dp/B07G17DR4X/ref=sr_1_1?crid=2W6VFDEI4T5OX&dib=eyJ2IjoiMSJ9.E5uYhPCyi1ZI3_F6vOB2WWV4QL_t-ljGjwa9rx5-DHw8PYn9og04ProQN6XKniZnBIPH4l7fsmMli4CeIn0CN6vZqfgboyMZBXNkWTd01OEGwIFZ8JWew5ZA-fdgZeLOjigsqgFAIlNDO4TokwhsVJnN2XQ7-1MmLXtrJDee7JdNBkqSMKemzvmg6RWAlo--Y1P-eZ3V5YcLsZ2t1ruFalcnQqtQInUvDaxqJrruTg0.XeuMvRSH2l72PYXtpfVoadIe1GZieyX8HFyVaMDR67c&dib_tag=se&keywords=the+silent+patient&qid=1776872364&s=digital-text&sprefix=the+silent+patient%2Cdigital-text%2C152&sr=1-1" target="_blank" rel="noopener noreferrer">
+            <img src="../photos/patient.png" alt="The Silent Patient">
+          </a>
+            <h3>The Silent Patient</h3>
+          <p>Alex Michaelides</p>
+          <span class="book-tag">Thriller</span>
+        </div>
+      </div>
+      <div class="tbr-note">
+        I'll update this page and add a review section once I've finished these — stick around if you're interested!
+      </div>
+    </section>
+
+  <section class='card' id='quotes'>
+    <h2>My favourite quotes from the books above</h2>
+    <hr class="divider">
+    <p>I have regrouped below some of my all-time favourite quotes from the books above</p>
+    <p>I hope you will like them as much as I do.</p>
+    <p><strong>CLICK TO FLIP</strong></p>
+
+    <div class="vision-board">
+
+      <div class="vb-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <img src="../photos/quote1.jpg" alt="Quote 1">
+          </div>
+          <div class="flip-back">
+            <p>This line stopped me cold the first time I read it. It's a quiet warning to stop postponing the life you actually want to live.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <img src="../photos/quote2.jpg" alt="Quote 2">
+          </div>
+          <div class="flip-back">
+            <p>Christie wrote these lines decades ago yet they feel chillingly current. The simplicity of each one is exactly what makes them impossible to forget.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <img src="../photos/quote3.jpg" alt="Quote 3">
+          </div>
+          <div class="flip-back">
+            <p>A gentle reminder that difference isn't a flaw, it's just humanity in all its variety. This one changed how I approach people I initially find difficult.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <img src="../photos/quote4.jpg" alt="Quote 4">
+          </div>
+          <div class="flip-back">
+            <p>Sejanus says what the whole series dances around but never quite states so plainly. This speech broke my heart and made him my favourite character instantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <img src="../photos/quote5.jpg" alt="Quote 5">
+          </div>
+          <div class="flip-back">
+            <p>Bardugo packs so much courage into four words. It reminds me that honesty, however uncomfortable, is always the kinder choice in the long run.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vb-item">
+        <div class="flip-card">
+          <div class="flip-front">
+            <img src="../photos/quote6.jpg" alt="Quote 6">
+          </div>
+          <div class="flip-back">
+            <p>Two sentences that feel like an ancient proverb but hit like a plot twist. Bardugo's world-building lives in lines like this — mythic, cold, and unforgettable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Celia</span>
+      <div class="footer-links">
+        <a href="practiced_hobbies.html">Hobbies</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+    <p class="footer-copy">© Celia</p>
+  </footer>
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- javascript for the quotes flip cards -->
+
+  <script>
+    const bar = document.getElementById('read-progress');
+    document.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const height    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      bar.style.width = ((scrollTop / height) * 100) + '%';
+    });
+  </script>
+
+  
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
+
+  <!-- JS for the back to top button-->
+
+  <script>
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+   </script>
+
+</body>
+</html>
